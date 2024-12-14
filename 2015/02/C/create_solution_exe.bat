@@ -1,0 +1,1 @@
+gcc functions.c main.c -o solution.exe
