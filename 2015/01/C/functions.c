@@ -5,7 +5,7 @@
 
 int first_puzzle()
 {
-    FILE* filePointer = fopen("../input.txt", "r");
+    FILE* filePointer = fopen(INPUT_FILE, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -15,11 +15,13 @@ int first_puzzle()
         do
         {
             ch = getc(filePointer);
-            if(ch == 40) 
+            if(ch == OPEN_PARANTHESIS) 
                 ++result;
-            if(ch == 41)
+            if(ch == CLOSE_PARANTHESIS)
                 --result;
         } while (ch != EOF);
+        
+        fclose(filePointer);
         return result;
     }
     else
@@ -32,7 +34,7 @@ int first_puzzle()
 
 int second_puzzle()
 {
-    FILE* filePointer = fopen("../input.txt", "r");
+    FILE* filePointer = fopen(INPUT_FILE, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -43,15 +45,17 @@ int second_puzzle()
         do
         {
             ch = getc(filePointer);
-            if(ch == 40) 
+            if(ch == OPEN_PARANTHESIS) 
                 ++floor;
-            if(ch == 41)
+            if(ch == CLOSE_PARANTHESIS)
                 --floor;
             
-            if(floor == -1)
+            if(floor == FIRST_BASEMENT_LEVEL)
                 return result;
             ++result;
         } while (ch != EOF);
+
+        fclose(filePointer);
     }
     else
     {
