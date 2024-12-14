@@ -10,8 +10,6 @@ int first_puzzle()
     {
         printf("Input file is open for reading.\n");
 
-        char up[1] = "(";
-        char down[1] = ")";
         int ch = 0;
         int result = 0;
         do
@@ -38,9 +36,7 @@ int second_puzzle()
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
-
-        char up[1] = "(";
-        char down[1] = ")";
+        
         int ch = 0;
         int floor = 0;
         int result = 1;
