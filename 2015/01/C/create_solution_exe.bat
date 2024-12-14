@@ -1,1 +1,1 @@
-gcc first_puzzle.c second_puzzle.c main.c -o solution.exe
+gcc functions.c main.c -o solution.exe

@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-#include "first_puzzle.h"
-#include "second_puzzle.h"
+#include "functions.h"
 
 void main()
 {
