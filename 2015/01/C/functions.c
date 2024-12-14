@@ -26,7 +26,7 @@ int first_puzzle()
     }
     else
     {
-        printf("Error upon opening input file for reading.\n");
+        printf("Could not open the input file for reading.\n");
     }
 
     return INT_MIN;
@@ -59,7 +59,7 @@ int second_puzzle()
     }
     else
     {
-        printf("Error upon opening input file for reading.\n");
+        printf("Could not open the input file for reading.\n");
     }
 
     return -1;
