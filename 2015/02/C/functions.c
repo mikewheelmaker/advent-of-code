@@ -29,9 +29,9 @@ int getTotalPlusExtra(int* dimensions)
     return 2*a + 2*b + 2*c + smallestArea;
 }
 
-int first_puzzle()
+int first_puzzle(char* fileName)
 {
-    FILE* filePointer = fopen(INPUT_FILE, "r");
+    FILE* filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -127,9 +127,9 @@ int getTotalRibbon(int* dimensions)
     return totalPerimeter - largestPerimeter + a*b*c;
 }
 
-int second_puzzle()
+int second_puzzle(char* fileName)
 {
-    FILE* filePointer = fopen(INPUT_FILE, "r");
+    FILE* filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");

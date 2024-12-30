@@ -3,9 +3,9 @@
 
 #include "functions.h"
 
-int first_puzzle()
+int first_puzzle(char* fileName)
 {
-    FILE* filePointer = fopen(INPUT_FILE, "r");
+    FILE* filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -32,9 +32,9 @@ int first_puzzle()
     return INT_MIN;
 }
 
-int second_puzzle()
+int second_puzzle(char* fileName)
 {
-    FILE* filePointer = fopen(INPUT_FILE, "r");
+    FILE* filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
