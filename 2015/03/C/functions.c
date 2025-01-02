@@ -2,10 +2,9 @@
 
 #include "functions.h"
 
-int first_puzzle(char* fileName)
+int first_puzzle(char *fileName)
 {
-    int numberOfHousesVisited = -1;
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -23,22 +22,22 @@ int first_puzzle(char* fileName)
         j = MAX_SIZE / 2;
         houses[i][j] = 1;
 
-        int ch = 0;
+        int ch;
         do
         {
             ch = getc(filePointer);
             switch(ch)
             {
-                case NORTH:
+                case '^':
                     ++houses[i][++j];
                     break;
-                case SOUTH:
+                case 'v':
                     ++houses[i][--j];
                     break;
-                case WEST:
+                case '<':
                     ++houses[--i][j];
                     break;
-                case EAST:
+                case '>':
                     ++houses[++i][j];
                     break;
                 default:
@@ -47,7 +46,7 @@ int first_puzzle(char* fileName)
             }
         } while (ch != EOF);
 
-        numberOfHousesVisited = 0;
+        int numberOfHousesVisited = 0;
         for(i = 0; i < MAX_SIZE; ++i)
         {
             for(j = 0; j < MAX_SIZE; ++j)
@@ -58,6 +57,7 @@ int first_puzzle(char* fileName)
                 }
             }
         }
+        return numberOfHousesVisited;
     }
     else
     {
@@ -65,13 +65,12 @@ int first_puzzle(char* fileName)
     }
 
     fclose(filePointer);
-    return numberOfHousesVisited;
+    return -1;
 }
 
-int second_puzzle(char* fileName)
+int second_puzzle(char *fileName)
 {
-    int numberOfHousesVisited = -1;
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -96,7 +95,7 @@ int second_puzzle(char* fileName)
         housesSanta[iSanta][jSanta] = 1;
         housesRoboSanta[iRoboSanta][jRoboSanta] = 1;
 
-        int ch = 0;
+        int ch;
         int index = 0;
         do
         {
@@ -106,16 +105,16 @@ int second_puzzle(char* fileName)
                 // RoboSanta's turn
                 switch(ch)
                 {
-                    case NORTH:
+                    case '^':
                         ++housesRoboSanta[iRoboSanta][++jRoboSanta];
                         break;
-                    case SOUTH:
+                    case 'v':
                         ++housesRoboSanta[iRoboSanta][--jRoboSanta];
                         break;
-                    case WEST:
+                    case '<':
                         ++housesRoboSanta[--iRoboSanta][jRoboSanta];
                         break;
-                    case EAST:
+                    case '>':
                         ++housesRoboSanta[++iRoboSanta][jRoboSanta];
                         break;
                     default:
@@ -128,16 +127,16 @@ int second_puzzle(char* fileName)
                 // Santa's turn
                 switch(ch)
                 {
-                    case NORTH:
+                    case '^':
                         ++housesSanta[iSanta][++jSanta];
                         break;
-                    case SOUTH:
+                    case 'v':
                         ++housesSanta[iSanta][--jSanta];
                         break;
-                    case WEST:
+                    case '<':
                         ++housesSanta[--iSanta][jSanta];
                         break;
-                    case EAST:
+                    case '>':
                         ++housesSanta[++iSanta][jSanta];
                         break;
                     default:
@@ -147,7 +146,7 @@ int second_puzzle(char* fileName)
             }
         } while (ch != EOF);
 
-        numberOfHousesVisited = 0;
+        int numberOfHousesVisited = 0;
         for(i = 0; i < MAX_SIZE; ++i)
         {
             for(j = 0; j < MAX_SIZE; ++j)
@@ -159,6 +158,7 @@ int second_puzzle(char* fileName)
                 }
             }
         }
+        return numberOfHousesVisited;
     }
     else
     {
@@ -166,5 +166,5 @@ int second_puzzle(char* fileName)
     }
 
     fclose(filePointer);
-    return numberOfHousesVisited;
+    return -1;
 }
