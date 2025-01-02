@@ -5,6 +5,11 @@
 
 #include "functions.h"
 
+/**
+ * Implemented using the code provided by devtty1er on stackoverflow.com
+ * https://stackoverflow.com/questions/7627723/how-to-create-a-md5-hash-of-a-string-in-c/61333376#61333376
+ * TO DO: implement algorithm directly from pseudocode (https://en.wikipedia.org/wiki/MD5)
+ */
 void bytes2md5(const char *data, int len, char *md5buf)
 {
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
