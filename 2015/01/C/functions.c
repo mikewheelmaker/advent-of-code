@@ -3,9 +3,9 @@
 
 #include "functions.h"
 
-int first_puzzle(char* fileName)
+int first_puzzle(char *fileName)
 {
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -15,9 +15,9 @@ int first_puzzle(char* fileName)
         do
         {
             ch = getc(filePointer);
-            if(ch == OPEN_PARANTHESIS) 
+            if(ch == '(') 
                 ++result;
-            if(ch == CLOSE_PARANTHESIS)
+            if(ch == ')')
                 --result;
         } while (ch != EOF);
         
@@ -32,9 +32,9 @@ int first_puzzle(char* fileName)
     return INT_MIN;
 }
 
-int second_puzzle(char* fileName)
+int second_puzzle(char *fileName)
 {
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -45,9 +45,9 @@ int second_puzzle(char* fileName)
         do
         {
             ch = getc(filePointer);
-            if(ch == OPEN_PARANTHESIS) 
+            if(ch == '(') 
                 ++floor;
-            if(ch == CLOSE_PARANTHESIS)
+            if(ch == ')')
                 --floor;
             
             if(floor == FIRST_BASEMENT_LEVEL)
