@@ -3,11 +3,11 @@
 
 #include "functions.h"
 
-int getTotalPlusExtra(int* dimensions)
+int getTotalPlusExtra(int *dimensions)
 {
-    int a = dimensions[0]*dimensions[1]; // length * width
-    int b = dimensions[0]*dimensions[2]; // length * height
-    int c = dimensions[1]*dimensions[2]; // width * height
+    int a = dimensions[0] * dimensions[1]; // length * width
+    int b = dimensions[0] * dimensions[2]; // length * height
+    int c = dimensions[1] * dimensions[2]; // width * height
     bool aLessThanB = a < b;
     bool aLessThanC = a < c;
     bool bLessThanC = b < c;
@@ -29,15 +29,15 @@ int getTotalPlusExtra(int* dimensions)
     return 2*a + 2*b + 2*c + smallestArea;
 }
 
-int first_puzzle(char* fileName)
+int first_puzzle(char *fileName)
 {
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
 
         int total = 0;
-        int ch = 0;
+        int ch;
         int dimension = 0; // 0 - length, 1 - width, 2 - height
         int dimensions[3];
         dimensions[0] = dimensions[1] = dimensions[2] = -1;
@@ -47,12 +47,12 @@ int first_puzzle(char* fileName)
         do
         {
             ch = getc(filePointer);
-            if(ch >= ZERO && ch <= NINE)
+            if(ch >= '0' && ch <= '9')
             {
-                digits[digit] = ch - ZERO;
+                digits[digit] = ch - '0';
                 ++digit;
             }
-            if(ch == X)
+            if(ch == 'x')
             {
                 if(digit == 2)
                 {
@@ -66,7 +66,7 @@ int first_puzzle(char* fileName)
                 digit = 0;
                 digits[0] = digits[1] = -1;
             }
-            if(ch == EOL)
+            if(ch == '\n' || ch == EOF)
             {
                 if(digit == 2)
                 {
@@ -100,7 +100,7 @@ int first_puzzle(char* fileName)
     return -1;
 }
 
-int getTotalRibbon(int* dimensions)
+int getTotalRibbon(int *dimensions)
 {
     int a = dimensions[0]; // length
     int b = dimensions[1]; // width
@@ -127,9 +127,9 @@ int getTotalRibbon(int* dimensions)
     return totalPerimeter - largestPerimeter + a*b*c;
 }
 
-int second_puzzle(char* fileName)
+int second_puzzle(char *fileName)
 {
-    FILE* filePointer = fopen(fileName, "r");
+    FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
@@ -145,12 +145,12 @@ int second_puzzle(char* fileName)
         do
         {
             ch = getc(filePointer);
-            if(ch >= ZERO && ch <= NINE)
+            if(ch >= '0' && ch <= '9')
             {
-                digits[digit] = ch - ZERO;
+                digits[digit] = ch - '0';
                 ++digit;
             }
-            if(ch == X)
+            if(ch == 'x')
             {
                 if(digit == 2)
                 {
@@ -164,7 +164,7 @@ int second_puzzle(char* fileName)
                 digit = 0;
                 digits[0] = digits[1] = -1;
             }
-            if(ch == EOL)
+            if(ch == '\n' || ch == EOF)
             {
                 if(digit == 2)
                 {
