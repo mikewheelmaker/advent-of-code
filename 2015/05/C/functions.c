@@ -138,7 +138,6 @@ int second_puzzle(char *fileName)
             fgets(str, 17, filePointer);
             if(p2_condition1(str) && !p2_triplets(str) && p2_condition2(str))
             {
-                printf("Nice string found: %s\n", str);
                 ++total;
             }
         } while (!feof(filePointer));
