@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "functions.h"
 
 int first_puzzle(char *fileName)
@@ -57,6 +55,8 @@ int first_puzzle(char *fileName)
                 }
             }
         }
+
+        fclose(filePointer);
         return numberOfHousesVisited;
     }
     else
@@ -158,6 +158,8 @@ int second_puzzle(char *fileName)
                 }
             }
         }
+
+        fclose(filePointer);
         return numberOfHousesVisited;
     }
     else
