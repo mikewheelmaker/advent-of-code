@@ -130,7 +130,6 @@ void handleLightsBrightness(int *lights, int operation, int startI, int startJ, 
 
 int second_puzzle(char *fileName)
 {
-    printf("got here\n");
     FILE *filePointer = fopen(fileName, "r");
     if(filePointer != NULL)
     {
