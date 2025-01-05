@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 
 #include "functions.h"
@@ -61,6 +60,7 @@ int first_puzzle(char *fileName)
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
+
         char str[17];
         int total = 0;
         do
@@ -71,6 +71,8 @@ int first_puzzle(char *fileName)
                 ++total;
             }
         } while (!feof(filePointer));
+
+        fclose(filePointer);
         return total;
     }
     else
@@ -131,6 +133,7 @@ int second_puzzle(char *fileName)
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
+
         char str[17];
         int total = 0;
         do
@@ -141,6 +144,8 @@ int second_puzzle(char *fileName)
                 ++total;
             }
         } while (!feof(filePointer));
+
+        fclose(filePointer);
         return total;
     }
     else

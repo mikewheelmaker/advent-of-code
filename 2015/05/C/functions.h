@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 #include <stdbool.h>
+#include <stdio.h>
 
 #define SIMPLE_INPUT_FILE_PART_1 "../simple_input_part_1.txt"
 #define SIMPLE_INPUT_FILE_PART_2 "../simple_input_part_2.txt"
