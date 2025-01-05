@@ -1,6 +1,5 @@
 #include <openssl/evp.h>
 #include <stdbool.h>
-#include <stdio.h>
 #include <string.h>
 
 #include "functions.h"
@@ -31,6 +30,7 @@ int findNumber(char *fileName, int numberOfZeroes)
     if(filePointer != NULL)
     {
         printf("Input file is open for reading.\n");
+
         char inputString[33];
         fscanf(filePointer, "%s", inputString);
         char workingString[33];
@@ -52,6 +52,8 @@ int findNumber(char *fileName, int numberOfZeroes)
             }
         } while (!zeroesMet);
         printf("%s\n", md5);
+
+        fclose(filePointer);
         return number;
     }
     else
