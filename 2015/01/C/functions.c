@@ -1,5 +1,4 @@
 #include <limits.h>
-#include <stdio.h>
 
 #include "functions.h"
 
@@ -29,6 +28,7 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
+    fclose(filePointer);
     return INT_MIN;
 }
 
@@ -51,16 +51,18 @@ int second_puzzle(char *fileName)
                 --floor;
             
             if(floor == FIRST_BASEMENT_LEVEL)
+            {
+                fclose(filePointer);
                 return result;
+            }
             ++result;
         } while (ch != EOF);
-
-        fclose(filePointer);
     }
     else
     {
         printf("Could not open the input file for reading.\n");
     }
 
+    fclose(filePointer);
     return -1;
 }
