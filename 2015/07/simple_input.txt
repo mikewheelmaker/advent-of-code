@@ -1,8 +1,19 @@
-123 -> x
-456 -> y
-x AND y -> d
-x OR y -> e
-x LSHIFT 2 -> f
-y RSHIFT 2 -> g
-NOT x -> h
-NOT y -> i
+24 -> s
+s -> r
+23 -> q
+20 LSHIFT r -> p
+q LSHIFT 19 -> o
+o LSHIFT p -> l
+22 -> n
+18 RSHIFT n -> m
+m RSHIFT 17 -> k
+k RSHIFT l -> j
+16 OR j -> h
+21 -> i
+i OR 15 -> g
+g OR h -> f
+14 AND f -> e
+e AND 13 -> d
+NOT 35 -> c
+NOT d -> b
+b AND c -> a
