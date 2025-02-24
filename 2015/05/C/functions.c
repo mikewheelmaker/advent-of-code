@@ -5,13 +5,13 @@
 bool p1_condition1(char *string)
 {
     char vowels[] = "aeiou";
-    char *pointerToCharacter;
+    char *pChar;
     int numberOfVowelsPresent = 0;
-    pointerToCharacter = strpbrk(string, vowels);
-    while (pointerToCharacter != NULL)
+    pChar = strpbrk(string, vowels);
+    while (pChar != NULL)
     {
         ++numberOfVowelsPresent;
-        pointerToCharacter = strpbrk(pointerToCharacter + 1, vowels);
+        pChar = strpbrk(pChar + 1, vowels);
     }
     if(numberOfVowelsPresent >= 3)
     {
@@ -56,8 +56,8 @@ bool p1_condition3(char *string)
 
 int first_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -65,14 +65,14 @@ int first_puzzle(char *fileName)
         int total = 0;
         do
         {
-            fgets(str, 17, filePointer);
+            fgets(str, 17, pFile);
             if(p1_condition1(str) && p1_condition2(str) && p1_condition3(str))
             {
                 ++total;
             }
-        } while (!feof(filePointer));
+        } while (!feof(pFile));
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -80,7 +80,7 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
 
@@ -106,8 +106,8 @@ bool p2_condition1(char *string)
         subString[0] = string[i];
         subString[1] = string[i + 1];
         subString[2] = '\0';
-        char *pointerToSubString = strstr(string + i + 1, subString);
-        if(pointerToSubString != NULL)
+        char *pSubString = strstr(string + i + 1, subString);
+        if(pSubString != NULL)
         {
             return true;
         }
@@ -129,8 +129,8 @@ bool p2_condition2(char *string)
 
 int second_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -138,14 +138,14 @@ int second_puzzle(char *fileName)
         int total = 0;
         do
         {
-            fgets(str, 17, filePointer);
+            fgets(str, 17, pFile);
             if(p2_condition1(str) && !p2_triplets(str) && p2_condition2(str))
             {
                 ++total;
             }
-        } while (!feof(filePointer));
+        } while (!feof(pFile));
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -153,6 +153,6 @@ int second_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
