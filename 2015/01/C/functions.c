@@ -4,8 +4,8 @@
 
 int first_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -13,14 +13,14 @@ int first_puzzle(char *fileName)
         int result = 0;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             if(ch == '(') 
                 ++result;
             if(ch == ')')
                 --result;
         } while (ch != EOF);
         
-        fclose(filePointer);
+        fclose(pFile);
         return result;
     }
     else
@@ -28,14 +28,14 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return INT_MIN;
 }
 
 int second_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
         
@@ -44,7 +44,7 @@ int second_puzzle(char *fileName)
         int result = 1;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             if(ch == '(') 
                 ++floor;
             if(ch == ')')
@@ -52,7 +52,7 @@ int second_puzzle(char *fileName)
             
             if(floor == FIRST_BASEMENT_LEVEL)
             {
-                fclose(filePointer);
+                fclose(pFile);
                 return result;
             }
             ++result;
@@ -63,6 +63,6 @@ int second_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
