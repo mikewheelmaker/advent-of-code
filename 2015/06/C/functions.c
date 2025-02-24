@@ -29,8 +29,8 @@ void handleLights(bool *lights, int operation, int startI, int startJ, int finis
 
 int first_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -39,42 +39,42 @@ int first_puzzle(char *fileName)
         char str[33];
         do
         {
-            fgets(str, 33, filePointer);
+            fgets(str, 33, pFile);
             if(strlen(str) > 6)
             {
                 int op;
                 int startI, startJ, finishI, finishJ;
-                char *pointerToFirstToken = strtok(str, " ");  // "toggle/turn"
-                if(strcmp(pointerToFirstToken, "toggle") == 0)
+                char *pFirstToken = strtok(str, " ");  // "toggle/turn"
+                if(strcmp(pFirstToken, "toggle") == 0)
                 {
                     op = TOGGLE;
                 }
-                if(strcmp(pointerToFirstToken, "turn") == 0)
+                if(strcmp(pFirstToken, "turn") == 0)
                 {
-                    char *pointerToSecondToken = strtok(NULL, " ");  // "off/on"
-                    if(strcmp(pointerToSecondToken, "on") == 0)
+                    char *pSecondToken = strtok(NULL, " ");  // "off/on"
+                    if(strcmp(pSecondToken, "on") == 0)
                     {
                         op = TURN_ON;
                     }
-                    if(strcmp(pointerToSecondToken, "off") == 0)
+                    if(strcmp(pSecondToken, "off") == 0)
                     {
                         op = TURN_OFF;
                     }
                 }
-                char *pointerToStartToken = strtok(NULL, " "); // "startI,startJ"
+                char *pStartToken = strtok(NULL, " "); // "startI,startJ"
                 strtok(NULL, " "); // "through"
-                char *pointerToFinishToken = strtok(NULL, " "); // "finishI,finishJ"
-                char *pointerToStartIToken = strtok(pointerToStartToken, ",");
-                startI = atoi(pointerToStartIToken);
-                char *pointerToStartJToken = strtok(NULL, ",");
-                startJ = atoi(pointerToStartJToken);
-                char *pointerToFinishIToken = strtok(pointerToFinishToken, ",");
-                finishI = atoi(pointerToFinishIToken);
-                char *pointerToFinishJToken = strtok(NULL, ",");
-                finishJ = atoi(pointerToFinishJToken);
+                char *pFinishToken = strtok(NULL, " "); // "finishI,finishJ"
+                char *pStartIToken = strtok(pStartToken, ",");
+                startI = atoi(pStartIToken);
+                char *pStartJToken = strtok(NULL, ",");
+                startJ = atoi(pStartJToken);
+                char *pFinishIToken = strtok(pFinishToken, ",");
+                finishI = atoi(pFinishIToken);
+                char *pFinishJToken = strtok(NULL, ",");
+                finishJ = atoi(pFinishJToken);
                 handleLights(lights, op, startI, startJ, finishI, finishJ);
             }
-        } while(!feof(filePointer));
+        } while(!feof(pFile));
 
         int total = 0;
         int i, j;
@@ -89,7 +89,7 @@ int first_puzzle(char *fileName)
             }
         }
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -97,7 +97,7 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
 
@@ -130,8 +130,8 @@ void handleLightsBrightness(int *lights, int operation, int startI, int startJ, 
 
 int second_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -139,42 +139,42 @@ int second_puzzle(char *fileName)
         char str[33];
         do
         {
-            fgets(str, 33, filePointer);
+            fgets(str, 33, pFile);
             if(strlen(str) > 6)
             {
                 int op;
                 int startI, startJ, finishI, finishJ;
-                char *pointerToFirstToken = strtok(str, " ");  // "toggle/turn"
-                if(strcmp(pointerToFirstToken, "toggle") == 0)
+                char *pFirstToken = strtok(str, " ");  // "toggle/turn"
+                if(strcmp(pFirstToken, "toggle") == 0)
                 {
                     op = TOGGLE;
                 }
-                if(strcmp(pointerToFirstToken, "turn") == 0)
+                if(strcmp(pFirstToken, "turn") == 0)
                 {
-                    char *pointerToSecondToken = strtok(NULL, " ");  // "off/on"
-                    if(strcmp(pointerToSecondToken, "on") == 0)
+                    char *pSecondToken = strtok(NULL, " ");  // "off/on"
+                    if(strcmp(pSecondToken, "on") == 0)
                     {
                         op = TURN_ON;
                     }
-                    if(strcmp(pointerToSecondToken, "off") == 0)
+                    if(strcmp(pSecondToken, "off") == 0)
                     {
                         op = TURN_OFF;
                     }
                 }
-                char *pointerToStartToken = strtok(NULL, " "); // "startI,startJ"
+                char *pStartToken = strtok(NULL, " "); // "startI,startJ"
                 strtok(NULL, " "); // "through"
-                char *pointerToFinishToken = strtok(NULL, " "); // "finishI,finishJ"
-                char *pointerToStartIToken = strtok(pointerToStartToken, ",");
-                startI = atoi(pointerToStartIToken);
-                char *pointerToStartJToken = strtok(NULL, ",");
-                startJ = atoi(pointerToStartJToken);
-                char *pointerToFinishIToken = strtok(pointerToFinishToken, ",");
-                finishI = atoi(pointerToFinishIToken);
-                char *pointerToFinishJToken = strtok(NULL, ",");
-                finishJ = atoi(pointerToFinishJToken);
+                char *pFinishToken = strtok(NULL, " "); // "finishI,finishJ"
+                char *pStartIToken = strtok(pStartToken, ",");
+                startI = atoi(pStartIToken);
+                char *pStartJToken = strtok(NULL, ",");
+                startJ = atoi(pStartJToken);
+                char *pFinishIToken = strtok(pFinishToken, ",");
+                finishI = atoi(pFinishIToken);
+                char *pFinishJToken = strtok(NULL, ",");
+                finishJ = atoi(pFinishJToken);
                 handleLightsBrightness(lights, op, startI, startJ, finishI, finishJ);
             }
-        } while(!feof(filePointer));
+        } while(!feof(pFile));
 
         int total = 0;
         int i, j;
@@ -186,7 +186,7 @@ int second_puzzle(char *fileName)
             }
         }
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -194,6 +194,6 @@ int second_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
