@@ -26,13 +26,13 @@ void bytes2md5(const char *data, int len, char *md5buf)
 
 int findNumber(char *fileName, int numberOfZeroes)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
         char inputString[33];
-        fscanf(filePointer, "%s", inputString);
+        fscanf(pFile, "%s", inputString);
         char workingString[33];
         char numbers[33];
         char md5[33];
@@ -53,7 +53,7 @@ int findNumber(char *fileName, int numberOfZeroes)
         } while (!zeroesMet);
         printf("%s\n", md5);
 
-        fclose(filePointer);
+        fclose(pFile);
         return number;
     }
     else
@@ -61,7 +61,7 @@ int findNumber(char *fileName, int numberOfZeroes)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
 
