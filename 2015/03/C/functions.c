@@ -2,8 +2,8 @@
 
 int first_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -23,7 +23,7 @@ int first_puzzle(char *fileName)
         int ch;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             switch(ch)
             {
                 case '^':
@@ -56,7 +56,7 @@ int first_puzzle(char *fileName)
             }
         }
 
-        fclose(filePointer);
+        fclose(pFile);
         return numberOfHousesVisited;
     }
     else
@@ -64,14 +64,14 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
 
 int second_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -99,7 +99,7 @@ int second_puzzle(char *fileName)
         int index = 0;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             if(++index % 2 == 0)
             {
                 // RoboSanta's turn
@@ -159,7 +159,7 @@ int second_puzzle(char *fileName)
             }
         }
 
-        fclose(filePointer);
+        fclose(pFile);
         return numberOfHousesVisited;
     }
     else
@@ -167,6 +167,6 @@ int second_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
