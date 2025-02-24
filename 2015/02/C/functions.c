@@ -30,8 +30,8 @@ int getTotalPlusExtra(int *dimensions)
 
 int first_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -45,7 +45,7 @@ int first_puzzle(char *fileName)
         digits[0] = digits[1] = -1;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             if(ch >= '0' && ch <= '9')
             {
                 digits[digit] = ch - '0';
@@ -87,7 +87,7 @@ int first_puzzle(char *fileName)
             }
         } while (ch != EOF);
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -95,7 +95,7 @@ int first_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
 
@@ -128,8 +128,8 @@ int getTotalRibbon(int *dimensions)
 
 int second_puzzle(char *fileName)
 {
-    FILE *filePointer = fopen(fileName, "r");
-    if(filePointer != NULL)
+    FILE *pFile = fopen(fileName, "r");
+    if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
 
@@ -143,7 +143,7 @@ int second_puzzle(char *fileName)
         digits[0] = digits[1] = -1;
         do
         {
-            ch = getc(filePointer);
+            ch = getc(pFile);
             if(ch >= '0' && ch <= '9')
             {
                 digits[digit] = ch - '0';
@@ -185,7 +185,7 @@ int second_puzzle(char *fileName)
             }
         } while (ch != EOF);
 
-        fclose(filePointer);
+        fclose(pFile);
         return total;
     }
     else
@@ -193,6 +193,6 @@ int second_puzzle(char *fileName)
         printf("Could not open the input file for reading.\n");
     }
 
-    fclose(filePointer);
+    fclose(pFile);
     return -1;
 }
