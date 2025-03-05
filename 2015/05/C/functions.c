@@ -66,6 +66,10 @@ int first_puzzle(char *fileName)
         do
         {
             fgets(str, 17, pFile);
+            if(feof(pFile))
+            {
+                break;
+            }
             if(p1_condition1(str) && p1_condition2(str) && p1_condition3(str))
             {
                 ++total;
@@ -139,6 +143,10 @@ int second_puzzle(char *fileName)
         do
         {
             fgets(str, 17, pFile);
+            if(feof(pFile))
+            {
+                break;
+            }
             if(p2_condition1(str) && !p2_triplets(str) && p2_condition2(str))
             {
                 ++total;
