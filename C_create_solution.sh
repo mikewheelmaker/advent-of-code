@@ -8,4 +8,6 @@ else
 fi
 cd $1
 ./solution
-cd ../../..
+cd ..
+rm new_*.txt
+cd ../..

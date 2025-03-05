@@ -8,4 +8,6 @@ IF "%2" == "lssl" (
 )
 cd %1
 solution.exe
-cd ../../..
+cd ..
+del new_*.txt
+cd ../..
