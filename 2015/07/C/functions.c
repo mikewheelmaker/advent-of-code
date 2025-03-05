@@ -126,6 +126,10 @@ unsigned short int first_puzzle(char *fileName, char *desiredOutput)
         do
         {
             fgets(str, 19, pFile);
+            if(feof(pFile))
+            {
+                break;
+            }
             if(strlen(str) > 4)
             {
                 if(str != NULL)
@@ -235,6 +239,10 @@ unsigned short int second_puzzle(char *fileName, char *newFileName, char *desire
             do
             {
                 fgets(str, 19, pFile);
+                if(feof(pFile))
+                {
+                    break;
+                }
                 if(strlen(str) > 4)
                 {
                     if(str != NULL)
