@@ -40,6 +40,10 @@ int first_puzzle(char *fileName)
         do
         {
             fgets(str, 33, pFile);
+            if(feof(pFile))
+            {
+                break;
+            }
             if(strlen(str) > 6)
             {
                 int op;
@@ -140,6 +144,10 @@ int second_puzzle(char *fileName)
         do
         {
             fgets(str, 33, pFile);
+            if(feof(pFile))
+            {
+                break;
+            }
             if(strlen(str) > 6)
             {
                 int op;
