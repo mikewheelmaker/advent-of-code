@@ -8,6 +8,10 @@ else
 fi
 cd $1
 ./solution
-cd ..
-rm new_*.txt
-cd ../..
+if [ "$1" == "2015/07/C" ]; then
+    cd ..
+    rm new_*.txt
+    cd ../..
+else
+    cd ../../..
+fi

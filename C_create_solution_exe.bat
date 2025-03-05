@@ -8,6 +8,10 @@ IF "%2" == "lssl" (
 )
 cd %1
 solution.exe
-cd ..
-del new_*.txt
-cd ../..
+IF "%1" == "2015/07/C" (
+    cd ..
+    del new_*.txt
+    cd ../..
+) ELSE (
+    cd ../../..
+)
