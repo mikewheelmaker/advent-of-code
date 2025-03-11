@@ -7,6 +7,7 @@
 #define SIMPLE_INPUT_FILE_PART_1 "../simple_input_part_1.txt"
 #define SIMPLE_INPUT_FILE_PART_2 "../simple_input_part_2.txt"
 #define INPUT_FILE "../input.txt"
+#define MAX_LENGTH 17
 
 bool p1_condition1(char *string);
 bool p1_condition2(char *string);

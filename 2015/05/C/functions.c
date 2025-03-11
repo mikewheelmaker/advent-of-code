@@ -61,11 +61,11 @@ int first_puzzle(char *fileName)
     {
         printf("Input file is open for reading.\n");
 
-        char str[17];
+        char str[MAX_LENGTH];
         int total = 0;
         do
         {
-            fgets(str, 17, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
@@ -138,11 +138,11 @@ int second_puzzle(char *fileName)
     {
         printf("Input file is open for reading.\n");
 
-        char str[17];
+        char str[MAX_LENGTH];
         int total = 0;
         do
         {
-            fgets(str, 17, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
