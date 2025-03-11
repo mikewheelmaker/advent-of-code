@@ -7,18 +7,18 @@
 char *convertNumberToName(int number)
 {
     char *string = (char *)malloc(3 * sizeof(char));
-    string[0] = 'X';
-    string[1] = 'X';
+    string[0] = '?';
+    string[1] = '?';
     string[2] = '\0';
-    if(number >= 0 && number < 26)
+    if(number >= 0 && number < NUMBER_OF_LETTERS)
     {
         string[0] = number + 'a';
         string[1] = '\0';
     }
-    else if(number >= 26 && number < MAX_NUMBER_OF_OUTPUTS)
+    else if(number >= NUMBER_OF_LETTERS && number < MAX_NUMBER_OF_OUTPUTS)
     {
-        string[0] = number / 26 + 'a' - 1;
-        string[1] = number % 26 + 'a';
+        string[0] = number / NUMBER_OF_LETTERS + 'a' - 1;
+        string[1] = number % NUMBER_OF_LETTERS + 'a';
     }
     return string;
 }
@@ -31,7 +31,7 @@ int convertNameToNumber(char *name)
     }
     else if(strlen(name) == 2)
     {
-        return (name[0] - 'a' + 1) * 26 + (name[1] - 'a');
+        return (name[0] - 'a' + 1) * NUMBER_OF_LETTERS + (name[1] - 'a');
     }
     else
     {
@@ -109,7 +109,7 @@ unsigned short int first_puzzle(char *fileName, char *desiredOutput)
     if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
-        char str[19];
+        char str[MAX_LENGTH];
         WireInfo **wireInfos = (WireInfo **)malloc(MAX_NUMBER_OF_OUTPUTS * sizeof(WireInfo *));
         int i;
         for(i = 0; i < MAX_NUMBER_OF_OUTPUTS; ++i)
@@ -125,7 +125,7 @@ unsigned short int first_puzzle(char *fileName, char *desiredOutput)
         }
         do
         {
-            fgets(str, 19, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
@@ -235,10 +235,10 @@ unsigned short int second_puzzle(char *fileName, char *newFileName, char *desire
         if(pNewFile != NULL)
         {
             printf("New file open for writing.\n");
-            char str[19];
+            char str[MAX_LENGTH];
             do
             {
-                fgets(str, 19, pFile);
+                fgets(str, MAX_LENGTH, pFile);
                 if(feof(pFile))
                 {
                     break;
