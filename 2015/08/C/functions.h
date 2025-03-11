@@ -5,6 +5,7 @@
 
 #define SIMPLE_INPUT_FILE "../simple_input.txt"
 #define INPUT_FILE "../input.txt"
+#define MAX_LENGTH 44
 
 int getNumOfMemoryChars(char *str);
 int first_puzzle(char *fileName);

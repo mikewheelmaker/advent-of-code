@@ -37,12 +37,12 @@ int first_puzzle(char *fileName)
     if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
-        char str[50];
+        char str[MAX_LENGTH];
         int totalNumOfCodeChars = 0;
         int totalNumOfMemoryChars = 0;
         do
         {
-            fgets(str, 50, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
@@ -99,12 +99,12 @@ int second_puzzle(char *fileName)
     if(pFile != NULL)
     {
         printf("Input file is open for reading.\n");
-        char str[50];
+        char str[MAX_LENGTH];
         int totalNumOfCodeChars = 0;
         int totalNumOfMemoryChars = 0;
         do
         {
-            fgets(str, 50, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
@@ -120,7 +120,7 @@ int second_puzzle(char *fileName)
                     }
                 }
             }
-            char *tmp = (char *)malloc(100 * sizeof(char));
+            char *tmp = (char *)malloc(2 * MAX_LENGTH * sizeof(char));
             encode(str, tmp);
             totalNumOfCodeChars += strlen(tmp);
             totalNumOfMemoryChars += strlen(str);
