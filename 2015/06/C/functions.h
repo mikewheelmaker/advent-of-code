@@ -6,13 +6,20 @@
 
 #define SIMPLE_INPUT_FILE "../simple_input.txt"
 #define INPUT_FILE "../input.txt"
-#define TOGGLE 0
-#define TURN_ON 1
-#define TURN_OFF 2
+#define MAX_LENGTH 33
+#define NUMBER_OF_LIGHT_ROWS 1000
+#define NUMBER_OF_LIGHT_COLUMNS 1000
 
-void handleLights(bool *lights, int operation, int startI, int startJ, int finishI, int finishJ);
+typedef enum
+{
+    TOGGLE = 0,
+    TURN_ON,
+    TURN_OFF
+} Operation;
+
+void handleLights(bool *lights, Operation op, int startI, int startJ, int finishI, int finishJ);
 int first_puzzle(char *fileName);
-void handleLightsBrightness(int *lights, int operation, int startI, int startJ, int finishI, int finishJ);
+void handleLightsBrightness(int *lights, Operation op, int startI, int startJ, int finishI, int finishJ);
 int second_puzzle(char *fileName);
 
 #endif

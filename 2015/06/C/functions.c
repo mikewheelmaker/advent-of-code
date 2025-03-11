@@ -3,15 +3,15 @@
 
 #include "functions.h"
 
-void handleLights(bool *lights, int operation, int startI, int startJ, int finishI, int finishJ)
+void handleLights(bool *lights, Operation op, int startI, int startJ, int finishI, int finishJ)
 {
     int i, j;
     for(i = startI; i <= finishI; ++i)
     {
         for(j = startJ; j <= finishJ; ++j)
         {
-            int tmp = i * 1000 + j;
-            switch(operation)
+            int tmp = i * NUMBER_OF_LIGHT_ROWS + j;
+            switch(op)
             {
                 case TOGGLE:
                     lights[tmp] = !lights[tmp];
@@ -34,19 +34,19 @@ int first_puzzle(char *fileName)
     {
         printf("Input file is open for reading.\n");
 
-        bool *lights = (bool *)calloc(1000000, sizeof(bool));
+        bool *lights = (bool *)calloc(NUMBER_OF_LIGHT_ROWS * NUMBER_OF_LIGHT_COLUMNS, sizeof(bool));
 
-        char str[33];
+        char str[MAX_LENGTH];
         do
         {
-            fgets(str, 33, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
             }
             if(strlen(str) > 6)
             {
-                int op;
+                Operation op;
                 int startI, startJ, finishI, finishJ;
                 char *pFirstToken = strtok(str, " ");  // "toggle/turn"
                 if(strcmp(pFirstToken, "toggle") == 0)
@@ -82,11 +82,11 @@ int first_puzzle(char *fileName)
 
         int total = 0;
         int i, j;
-        for(i = 0; i < 1000; ++i)
+        for(i = 0; i < NUMBER_OF_LIGHT_ROWS; ++i)
         {
-            for(j = 0; j < 1000; ++j)
+            for(j = 0; j < NUMBER_OF_LIGHT_COLUMNS; ++j)
             {
-                if(lights[i * 1000 + j] == true)
+                if(lights[i * NUMBER_OF_LIGHT_ROWS + j] == true)
                 {
                     ++total;
                 }
@@ -105,15 +105,15 @@ int first_puzzle(char *fileName)
     return -1;
 }
 
-void handleLightsBrightness(int *lights, int operation, int startI, int startJ, int finishI, int finishJ)
+void handleLightsBrightness(int *lights, Operation op, int startI, int startJ, int finishI, int finishJ)
 {
     int i, j;
     for(i = startI; i <= finishI; ++i)
     {
         for(j = startJ; j <= finishJ; ++j)
         {
-            int tmp = i*1000 + j;
-            switch(operation)
+            int tmp = i * NUMBER_OF_LIGHT_ROWS + j;
+            switch(op)
             {
                 case TOGGLE:
                     lights[tmp] += 2;
@@ -139,18 +139,18 @@ int second_puzzle(char *fileName)
     {
         printf("Input file is open for reading.\n");
 
-        int *lights = (int *)calloc(1000000, sizeof(int));
-        char str[33];
+        int *lights = (int *)calloc(NUMBER_OF_LIGHT_ROWS * NUMBER_OF_LIGHT_COLUMNS, sizeof(int));
+        char str[MAX_LENGTH];
         do
         {
-            fgets(str, 33, pFile);
+            fgets(str, MAX_LENGTH, pFile);
             if(feof(pFile))
             {
                 break;
             }
             if(strlen(str) > 6)
             {
-                int op;
+                Operation op;
                 int startI, startJ, finishI, finishJ;
                 char *pFirstToken = strtok(str, " ");  // "toggle/turn"
                 if(strcmp(pFirstToken, "toggle") == 0)
@@ -186,11 +186,11 @@ int second_puzzle(char *fileName)
 
         int total = 0;
         int i, j;
-        for(i = 0; i < 1000; ++i)
+        for(i = 0; i < NUMBER_OF_LIGHT_ROWS; ++i)
         {
-            for(j = 0; j < 1000; ++j)
+            for(j = 0; j < NUMBER_OF_LIGHT_COLUMNS; ++j)
             {
-                total += lights[i * 1000 + j];
+                total += lights[i * NUMBER_OF_LIGHT_ROWS + j];
             }
         }
 
